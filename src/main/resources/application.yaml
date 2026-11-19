@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: finflow
+  datasource:
+    url: jdbc:postgresql://localhost:5433/finflow
+    username: finflow
+    password: finflow_password
+
+  flyway:
+    enabled: true
