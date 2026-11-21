@@ -10,8 +10,6 @@ import pet.proect.finflow.dto.RegisterRequest;
 import pet.proect.finflow.entity.User;
 import pet.proect.finflow.service.AuthService;
 
-import java.net.http.HttpResponse;
-
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

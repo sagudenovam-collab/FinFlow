@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pet.proect.finflow.entity.User;
 import pet.proect.finflow.repository.UserRepository;
-
-import java.net.http.HttpResponse;
 import java.time.OffsetDateTime;
 
 @Service
