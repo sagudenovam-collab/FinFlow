@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pet.proect.finflow.dto.RegisterRequest;
+import pet.proect.finflow.dto.UserResponse;
 import pet.proect.finflow.entity.User;
 import pet.proect.finflow.service.AuthService;
 
@@ -19,10 +20,23 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request){
+    public ResponseEntity<UserResponse> register(
+            @RequestBody RegisterRequest request
+    ) {
+
         User user = authService.register(
                 request.email(),
-                request.password());
-        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
+                request.password()
+        );
+
+        UserResponse response = new UserResponse(
+                user.getId(),
+                user.getEmail(),
+                user.getRole()
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 }
